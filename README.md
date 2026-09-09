@@ -26,9 +26,9 @@ No despliega honeypots reales, no captura tráfico y no incluye procedimientos d
 npm install
 npm run dev
 ```
-
 Abre http://localhost:3000
 
 ## Stack
 
 Next.js 15 · React 19 · TypeScript · despliegue en Vercel.
+

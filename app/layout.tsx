@@ -3,8 +3,8 @@ import "./globals.css";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: site.shortTitle,
-  description: site.title,
+  title: site.title,
+  description: "Consola de Threat Intelligence sobre una flota multi-honeypot con scoring ML.",
 };
 
 export default function RootLayout({
