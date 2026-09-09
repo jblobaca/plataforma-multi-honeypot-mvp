@@ -1,0 +1,381 @@
+:root {
+  --ink: #071018;
+  --navy: #0c1b2a;
+  --panel: #122433;
+  --line: rgba(212, 175, 106, 0.28);
+  --gold: #d4af6a;
+  --gold-2: #f0d59a;
+  --paper: #f4efe4;
+  --muted: #9bb0c3;
+  --text: #e8eef4;
+  --danger: #e07a6a;
+  --ok: #7dcaa0;
+  --info: #6cb6d6;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  background: var(--ink);
+  color: var(--text);
+  font-family: "Segoe UI", "Source Sans 3", sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wrap {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(16px);
+  background: rgba(7, 16, 24, 0.86);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.brand img {
+  height: 38px;
+  width: auto;
+  background: #fff;
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
+.brand small {
+  display: block;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.brand strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  font-size: 14px;
+}
+
+nav a {
+  color: var(--muted);
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--gold-2);
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 72px 0 56px;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(212, 175, 106, 0.16), transparent 34%),
+    radial-gradient(circle at 90% 0%, rgba(108, 182, 214, 0.12), transparent 28%),
+    linear-gradient(180deg, #0c1b2a 0%, #071018 100%);
+}
+
+.kicker {
+  color: var(--gold);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-bottom: 14px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  max-width: 16ch;
+  margin-bottom: 18px;
+}
+
+h2 {
+  font-size: 1.7rem;
+  margin-bottom: 12px;
+}
+
+.lead {
+  max-width: 68ch;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.meta-row,
+.actions,
+.grid-2,
+.grid-3,
+.canvas,
+.stat-row {
+  display: grid;
+  gap: 16px;
+}
+
+.meta-row {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  margin: 28px 0;
+}
+
+.actions {
+  grid-template-columns: repeat(auto-fit, minmax(180px, max-content));
+  margin-top: 28px;
+}
+
+.card,
+.block,
+.stat {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.stat b,
+.card h3,
+.block h3 {
+  display: block;
+  color: var(--gold-2);
+  margin-bottom: 8px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--gold);
+  color: var(--ink);
+  background: var(--gold);
+  font-weight: 650;
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--gold-2);
+}
+
+.section {
+  padding: 56px 0;
+}
+
+.section.paper {
+  background: var(--paper);
+  color: #1c2430;
+}
+
+.section.paper .muted,
+.section.paper p,
+.section.paper li {
+  color: #334155;
+}
+
+.section.paper h2,
+.section.paper h3 {
+  color: #132033;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.canvas {
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas:
+    "problem solution uvp advantage customers"
+    "problem metrics uvp channels customers"
+    "costs costs revenue revenue revenue";
+}
+
+.block {
+  min-height: 170px;
+}
+
+.a-problem { grid-area: problem; }
+.a-solution { grid-area: solution; }
+.a-uvp { grid-area: uvp; background: #1a3348; }
+.a-advantage { grid-area: advantage; }
+.a-customers { grid-area: customers; }
+.a-metrics { grid-area: metrics; }
+.a-channels { grid-area: channels; }
+.a-costs { grid-area: costs; }
+.a-revenue { grid-area: revenue; }
+
+.block ul {
+  padding-left: 18px;
+  font-size: 14px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.report {
+  width: min(860px, 100%);
+}
+
+.report p,
+.report li {
+  margin-bottom: 12px;
+}
+
+.report h2 {
+  margin: 36px 0 12px;
+}
+
+.report h3 {
+  margin: 24px 0 10px;
+  font-size: 1.2rem;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.pill {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 13px;
+  color: var(--gold-2);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 24px;
+  font-size: 14px;
+}
+
+th,
+td {
+  border-bottom: 1px solid rgba(19, 32, 51, 0.12);
+  text-align: left;
+  padding: 8px 6px;
+  vertical-align: top;
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 28px 0 40px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.demo-note {
+  background: rgba(224, 122, 106, 0.12);
+  border: 1px solid rgba(224, 122, 106, 0.35);
+  color: #f3c7bf;
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+}
+
+.event {
+  display: grid;
+  grid-template-columns: 90px 1fr auto;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+
+.sev-alta { color: var(--danger); }
+.sev-media { color: var(--gold-2); }
+.sev-baja { color: var(--ok); }
+
+@media (max-width: 980px) {
+  .canvas {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "uvp uvp"
+      "problem customers"
+      "solution metrics"
+      "advantage channels"
+      "costs revenue";
+  }
+}
+
+@media (max-width: 640px) {
+  .header-inner,
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .canvas {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "uvp"
+      "problem"
+      "customers"
+      "solution"
+      "metrics"
+      "advantage"
+      "channels"
+      "costs"
+      "revenue";
+  }
+  .event {
+    grid-template-columns: 1fr;
+  }
+}
